@@ -24,8 +24,8 @@ print(len(input_lst) == len(output_lst))
 
 with open("Marian_GPU/corpus_in", "w") as file:
     for i in input_lst:
-        file.write(i)
+        file.write(i + "\n")
 
 with open("Marian_GPU/corpus_out", "w") as file:
     for i in output_lst:
-        file.writelines(i)
+        file.write(i + "\n")
