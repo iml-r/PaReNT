@@ -98,4 +98,4 @@ df['rodiče'] = rodice
 
 print("data ready - writing...")
 
-df.to_csv("English/wiktionary_mined.tsv", sep="\t")
+df.to_csv("English/wiktionary_mined_compounds.tsv", sep="\t")
