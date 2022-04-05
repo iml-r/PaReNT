@@ -38,11 +38,11 @@ def grapheme_decode_PaReNT(x):
         return(lst)
 
 parser = argparse.ArgumentParser(description="Model type")
-parser.add_argument('model_type', type=str, default="GPU", help="Seš na clusteru nebo doma?")
-parser.add_argument('encoding', type=str, default="grapheme", help="Kterej encoding?")
-parser.add_argument('model_number', type=int, default=70000, help="kterej model?")
+parser.add_argument('--model_type', type=str, default="gpu", help="Seš na clusteru nebo doma?")
+parser.add_argument('--encoding', type=str, default="grapheme", help="Kterej encoding?")
+parser.add_argument('--model_number', type=int, default=70000, help="kterej model?")
 parser.add_argument('slovo', type=str, help="Zadej kompozitum brooo")
-parser.add_argument('threshold', type=str, default=1, help="Zadej threshold pro Mariana")
+parser.add_argument('--threshold', type=str, default=1, help="Zadej threshold pro Mariana")
 args = parser.parse_args()
 
 def grapheme_encode(x):
@@ -94,7 +94,7 @@ def rozpoznej_rodice(slovo, model_type, model_number, threshold=args.threshold):
         print(slovo)
     elif args.encoding == "grapheme":
         slovo = grapheme_encode(slovo)
-        print(slovo)
+        #print(slovo)
     if model_type == "cpu":
         bashCommand = "cd ./Marian_GPU/ \n echo {}".format(slovo) +  \
                       " | ./marian/build/marian-decoder -m model.npz -v corpus_in.yml corpus_out.yml --cpu-threads 1"
@@ -103,6 +103,7 @@ def rozpoznej_rodice(slovo, model_type, model_number, threshold=args.threshold):
                       " | ./marian/build/marian-decoder " \
                       "-m model.iter{}.npz " \
                       "-v corpus_in.yml corpus_out.yml " \
+                      "--quiet " \
                       "--beam-size {} --n-best".format(model_number, threshold)
     else:
         print("bad type")
@@ -151,10 +152,12 @@ videno = slovo in corpus
 
 #print(rodice)
 estimate = parse_n_splits(rodice)[0][:-3]
-print(estimate)
+#print(estimate)
 language = parse_n_splits(rodice)[0][-3:]
-print(f'Best ancestor estimate: {args.slovo} -> {estimate.replace(" ", ", ")} \n',
-      f'Best ancestor count: {len(parse_n_splits(rodice)[0].split(" "))} \n',
-      f'Word type: {typ_slova} \n',
+print("\n",
+      f'Best ancestor estimate: {args.slovo} -> {estimate.replace(" ", ", ")} \n',
+      f'Best ancestor count: {len(parse_n_splits(rodice)[0].split(" "))-1} \n',
       f'Language: {language} \n',
-      f'Presence in the training data: {videno}')
+      f'Presence in the training data: {videno}',
+      "\n",
+      f'Candidate list: {parse_n_splits(rodice)}')
