@@ -1,0 +1,4 @@
+Perform parent retrieval (predict which word or words the input lemma is motivated by) and word formation classification (predict whether the input lemma is a compound, a derivative, or unmotivated) on the given words. For each word, you will also be given its language of origin as a language token {cs : Czech,  ru : Russian,  de : German, es : Spanish, fr : French, nl : Dutch, en : English}. Format the output as tsv.
+
+The words: 
+
