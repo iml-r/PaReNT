@@ -73,7 +73,7 @@ There are three ways to use PaReNT:
 
 - interactive toy mode;
 - CLI tool;
-- Python package.
+- Python API.
 
 We will go through their usage one by one, but first, the tool has to be installed.
 
@@ -100,8 +100,46 @@ Depending on your system, the animation may be shorter than the loading time, so
 Once it does, you can input a word of your choosing, followed by an [ISO 639-1 language code](https://www.loc.gov/standards/iso639-2/php/code_list.php).
 
 ### CLI tool
-Specific format .tsv files can be pipelined into PaReNT. There has to be at least one column called **Lemma**, which contains lemmatized words from one of the languages supported by PaReNT (see Section **Performance**).
-Additionally, the .tsv file should contain a 
+Specific format .tsv files can be pipelined into PaReNT. There has to be at least one column called **lemma**, which contains lemmatized words from one of the languages supported by PaReNT (see Section **Performance**).
+Additionally, the .tsv file should contain a **language** column as well, containing langauge codes. PaReNT will run even if the **language** column is absent (the neural network will try to infer the language), but this feature is untested and not recommended unless strictly necessary.
 
+Once you have such a file, e.g. _test.tsv_ (example file contained in this very repo), simply do this:
 
+```bash
+python3 PaReNT.py < test.tsv > test_output.tsv
+```
 
+If there are more columns in your input .tsv file, PaReNT will keep them unchanged. It will add the following 6 columns:
+
+1) PaReNT_retrieval_best:                Best parent(s), selected from PaReNT_retrieval_candidates based on columns 4), 5) and 6).
+2) PaReNT_retrieval_greedy:              Parent(s) retrieved using greedy decoding.
+3) PaReNT_retrieval_candidates:          All candidates retrieved using beam search decoding, sorted by score.
+4) PaReNT_Compound_probability:          Estimated probability the word is a Compound.
+5) PaReNT_Derivative_probability:        Estimated probability the word is a Derivative.
+6) PaReNT_Unmotivated_probability        Estimated probability the word is Unmotivated
+
+### Python API
+Simply clone the repo into you project's directory and install the required packages into your project's virtual environment. We cannot guarantee performance listed in **Performance** unless the specific versions listed in _requirements.txt_ are respected.
+
+Once that's done, initialize the model:
+
+```python
+import PaReNT.PaReNT_core as PaReNT
+
+##Specify one of the models in the _model_ directory -- currently, only one is available
+model = PaReNT.PaReNT("e13-arc=FINAL5-clu=True-bat=64-epo=1000-uni=2048-att=512-cha=64-tes=0-tra=1-len=0.0-fra=1-lr=0.0001-opt=Adam-dro=0.2-rec=0.5-l=l1-use=1-neu=0-neu=0-sem=0")
+```
+There are two recommended methods to use -- _.classify()_ and _.retrieve_and_classify()_. 
+
+```python
+# Both methods expect a list of tuples: [(<language_code>, <lexeme>)]
+lexemes = [("en", <lexeme>), ("de", "Strassenbahn")]
+
+classification = model.classify(lexemes)
+
+#The retrieve_and_classify method uses beam search decoding. This allows you
+#to utilize the try_candidates and threshold options. Try_candidates is an integer
+#telling PaReNT to return the n best candidate parent sequences it can guess,
+#and threshold tells it how many.  
+retrieval_and_classification = model.retrieve_and_classify(lexemes, try_candidates=True, threshold=10)
+```
