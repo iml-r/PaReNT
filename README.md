@@ -135,11 +135,11 @@ There are two recommended methods to use -- _.classify()_ and _.retrieve_and_cla
 # Both methods expect a list of tuples: [(<language_code>, <lexeme>)]
 lexemes = [("en", <lexeme>), ("de", "Strassenbahn")]
 
-classification = model.classify([("en", <lexeme>), ("de", "Strassenbahn")])
+classification = model.classify(lexemes)
 
 #The retrieve_and_classify method uses beam search decoding. This allows you
 #to utilize the try_candidates and threshold options. Try_candidates is an integer
 #telling PaReNT to return the n best candidate parent sequences it can guess,
 #and threshold tells it how many.  
-retrieval_and_classification = model.retrieve_and_classify()
+retrieval_and_classification = model.retrieve_and_classify(lexemes)
 ```
