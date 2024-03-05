@@ -141,5 +141,5 @@ classification = model.classify(lexemes)
 #to utilize the try_candidates and threshold options. Try_candidates is an integer
 #telling PaReNT to return the n best candidate parent sequences it can guess,
 #and threshold tells it how many.  
-retrieval_and_classification = model.retrieve_and_classify(lexemes)
+retrieval_and_classification = model.retrieve_and_classify(lexemes, try_candidates=True, threshold=10)
 ```
