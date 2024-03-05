@@ -99,7 +99,9 @@ Then, an animation showcasing the logo will play, while the required packages (p
 Depending on your system, the animation may be shorter than the loading time, so please wait for the "Word:" prompt to appear.
 Once it does, you can input a word of your choosing, followed by an [ISO 639-1 language code](https://www.loc.gov/standards/iso639-2/php/code_list.php).
 
-### 
+### CLI tool
+Specific format .tsv files can be pipelined into PaReNT. There has to be at least one column called **Lemma**, which contains lemmatized words from one of the languages supported by PaReNT (see Section **Performance**).
+Additionally, the .tsv file should contain a 
 
 
 
