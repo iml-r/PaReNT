@@ -51,6 +51,18 @@ PaReNT has a specialized classification module which classifies each word into o
 The table shown here describes the performance of the model used in the current version of this GitHub repo. 
 It may differ from the the performance of the model described in the associated LREC paper.
 
+
+| Language | Retrieval accuracy | Classification accuracy | Balanced classification accuracy |
+|----------|--------------------|-------------------------|----------------------------------|
+|    cs    |        0.64        |           0.96          |               0.61               |
+|    de    |        0.64        |           0.98          |               0.93               |
+|    en    |        0.62        |           0.82          |               0.81               |
+|    es    |        0.74        |           0.98          |               0.96               |
+|    fr    |        0.54        |           0.96          |               0.53               |
+|    nl    |        0.59        |           0.9           |               0.78               |
+|    ru    |        0.63        |           0.97          |               0.75               |
+|  Total   |        0.63        |           0.94          |               0.77               |
+
 ## Application
 As far as we know, the tool has been used in the following papers:
 
@@ -85,7 +97,9 @@ python3 PaReNT.py -i
 
 Then, an animation showcasing the logo will play, while the required packages (primarily TensorFlow) are being loaded, which takes a while. 
 Depending on your system, the animation may be shorter than the loading time, so please wait for the "Word:" prompt to appear.
-Once it does, you can input a word of your choosing, followed by a language token (refer to table )
+Once it does, you can input a word of your choosing, followed by an [ISO 639-1 language code](https://www.loc.gov/standards/iso639-2/php/code_list.php).
+
+### 
 
 
 
