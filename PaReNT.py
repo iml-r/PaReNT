@@ -40,7 +40,7 @@ if not args.i:
 
         print(
             '''
-           PaReNT v. 0.5
+           PaReNT v. 0.7b
 
            This is PaReNT (Parent Retrieval Neural Tool), a deep-learning-based multilingual tool performing parent retrieval and word formation classification in English, German, Dutch, Spanish, French, Russian, and Czech. 
 
