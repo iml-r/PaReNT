@@ -1,4 +1,4 @@
-tensorflow==2.10.0
+tensorflow==2.9.0
 tensorflow-addons==0.19.0
 bpemb==0.3.4
 tqdm==4.64.1
