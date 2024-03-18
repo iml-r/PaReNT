@@ -19,7 +19,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 languages = ["en", "de", "nl", "es", "fr", "cs", "ru"]
 class_dict = {0: "Unmotivated", 1: "Derivative", 2: "Compound"}
 
-dirname = "e13-arc=FINAL5-clu=True-bat=64-epo=1000-uni=2048-att=512-cha=64-tes=0-tra=1-len=0.0-fra=1-lr=0.0001-opt=Adam-dro=0.2-rec=0.5-l=l1-use=1-neu=0-neu=0-sem=0/"
+dirname = "e17-arc=anime_body_pillow-clu=True-bat=64-epo=1000-uni=2048-att=128-cha=64-tes=0-tra=1-len=0.0-fra=1-lr=0.0001-opt=Adam-dro=0.2-rec=0.5-l=l1-use=1-neu=0-neu=0-sem=0"
 
 if args.i is True:
     args.batch_size = 1

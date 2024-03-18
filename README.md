@@ -34,7 +34,7 @@ PaReNT is a free multilingual tool performing parent retrieval and word formatio
 It is primarily intended for researchers in word formation and morphology, but can be found useful by anyone in computational linguistics or natural language processing.
 
 ### Parent retrieval
-Parent retrieval refers to producing the ancestor(s) of a given input word. For instance, ancestor (or parent) of the English word _development_ is _develop_; and the parents of _waterfall_ are _water_ and _fall_. It is an extension of lemmatization, an evolution of stemming, and a generalization of compound splitting. If you find any of these tasks useful, there is a good chance you might find parent retrieval useful as well.
+Parent retrieval refers to producing the ancestor(s) of a given input word. For instance, the ancestor (or parent) of the English word _development_ is _develop_; and the parents of _waterfall_ are _water_ and _fall_. It is an extension of lemmatization, an evolution of stemming, and a generalization of compound splitting. If you find any of these tasks useful, there is a good chance you might find parent retrieval useful as well.
 
 ### Word formation classification
 Very broadly speaking, words can be separated into three categories: 
@@ -49,19 +49,19 @@ PaReNT has a specialized classification module which classifies each word into o
 
 ## Performance
 The table shown here describes the performance of the model used in the current version of this GitHub repo. 
-It may differ from the the performance of the model described in the associated LREC paper.
+It may differ from the performance of the model described in the associated LREC paper.
 
 
 | Language | Retrieval accuracy | Classification accuracy | Balanced classification accuracy |
 |----------|--------------------|-------------------------|----------------------------------|
-|    cs    |        0.64        |           0.96          |               0.61               |
-|    de    |        0.64        |           0.98          |               0.93               |
-|    en    |        0.62        |           0.82          |               0.81               |
-|    es    |        0.74        |           0.98          |               0.96               |
-|    fr    |        0.54        |           0.96          |               0.53               |
-|    nl    |        0.59        |           0.9           |               0.78               |
-|    ru    |        0.63        |           0.97          |               0.75               |
-|  Total   |        0.63        |           0.94          |               0.77               |
+|    cs    |        0.69        | 0.96                    |               0.66               |
+|    de    |        0.62        | 0.95                    |               0.84               |
+|    en    |        0.75        | 0.88                    |               0.87               |
+|    es    |        0.83        | 0.98                    |               0.66               |
+|    fr    |        0.52        | 0.93                    |               0.49               |
+|    nl    |        0.58        | 0.91                    |               0.83               |
+|    ru    |        0.68        | 0.98                    |               0.82               |
+|  Total   |        0.67        | 0.94                    |               0.74               |
 
 ## Application
 As far as we know, the tool has been used in the following papers:
@@ -133,7 +133,7 @@ There are two recommended methods to use -- _.classify()_ and _.retrieve_and_cla
 
 ```python
 # Both methods expect a list of tuples: [(<language_code>, <lexeme>)]
-lexemes = [("en", <lexeme>), ("de", "Strassenbahn")]
+lexemes = [("en", "development"), ("de", "Hochschule")]
 
 classification = model.classify(lexemes)
 
