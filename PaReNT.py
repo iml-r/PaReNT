@@ -11,7 +11,8 @@ from multiprocessing import Process
 parser = argparse.ArgumentParser()
 parser.add_argument("-i", action="store_true", help="Interactive mode. For playing around only.")
 parser.add_argument("--debug_mode", action="store_true", help="Prints out various diagnostic and warning messages.")
-parser.add_argument("--batch_size", default=2, type=int, help="Batch size of the model. Larger batch size is faster, but consumes more memory. Negligible effect when inferring on CPU.")
+parser.add_argument("--batch_size", default=128, type=int, help="Batch size of the model. Larger batch size is faster, but consumes more memory. Negligible effect when inferring on CPU.")
+parser.add_argument("--num_candidates", default=6, type=int, help="Number of candidate retrievals PaReNT will generate. More candidates means a higher probability of generating the correct retrieval, but consumes more resources.")
 args = parser.parse_args()
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
