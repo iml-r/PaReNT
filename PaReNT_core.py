@@ -966,7 +966,7 @@ class PaReNT(tf.keras.Model):
                               threshold=64,
                               return_probs=False,
                               try_candidates=False,
-                              candidates=6):
+                              num_candidates=6):
 
         retrieved_lst = []
         retrieve_probs_lst = []
@@ -979,7 +979,7 @@ class PaReNT(tf.keras.Model):
         del_padding = False
 
         if threshold > 1:
-            chunks = tqdm(chunker(list_of_lexemes, size=threshold), total=len(list_of_lexemes) // threshold,
+            chunks = tqdm(chunker(list_of_lexemes, size=threshold), total=int(np.ceil(len(list_of_lexemes) / threshold)),
                           desc="Retrieving parent lemmas and classifying...", colour='#e6af00')
         else:
             chunks = chunker(list_of_lexemes, size=threshold)
@@ -1018,7 +1018,7 @@ class PaReNT(tf.keras.Model):
             classify_probs_lst += probs.numpy().tolist()
             classified_lst += list(tf.argmax(probs, axis=1).numpy())
 
-            candidate_ids = self._retrieve_candidates(encoder_output=encoded, beam_width=candidates)
+            candidate_ids = self._retrieve_candidates(encoder_output=encoded, beam_width=num_candidates)
             candidates = self.id_to_char(candidate_ids)
             candidates_lst += [[y.decode("UTF-8").split("[END]")[0].replace("_", " ") for y in i] for i in tf.strings.reduce_join(candidates, axis=2).numpy().tolist()]
 

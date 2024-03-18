@@ -11,7 +11,7 @@ from multiprocessing import Process
 parser = argparse.ArgumentParser()
 parser.add_argument("-i", action="store_true", help="Interactive mode. For playing around only.")
 parser.add_argument("--debug_mode", action="store_true", help="Prints out various diagnostic and warning messages.")
-parser.add_argument("--batch_size", default=128, type=int, help="Batch size of the model. Larger batch size is faster, but consumes more memory. Negligible effect when inferring on CPU.")
+parser.add_argument("--batch_size", default=2, type=int, help="Batch size of the model. Larger batch size is faster, but consumes more memory. Negligible effect when inferring on CPU.")
 args = parser.parse_args()
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
@@ -234,10 +234,10 @@ if args.i:
 else:
     list_of_lexemes = [*zip(language,lemmas)]
     output = model.retrieve_and_classify(list_of_lexemes,
-                                threshold=batch_size,
-                                return_probs=True,
-                                try_candidates=True,
-                                candidates=6)
+                                         threshold=batch_size,
+                                         return_probs=True,
+                                         try_candidates=True,
+                                         num_candidates=6)
 
     retrieved_parents, classification, retrieval_probabilities, classification_probabilities, candidates = output
     classification_probabilities_array = np.array(classification_probabilities)
