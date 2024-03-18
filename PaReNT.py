@@ -238,7 +238,7 @@ else:
                                          threshold=batch_size,
                                          return_probs=True,
                                          try_candidates=True,
-                                         num_candidates=6)
+                                         num_candidates=args.num_candidates)
 
     retrieved_parents, classification, retrieval_probabilities, classification_probabilities, candidates = output
     classification_probabilities_array = np.array(classification_probabilities)
