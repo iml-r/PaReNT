@@ -21,7 +21,7 @@ class_dict = {0: "Unmotivated", 1: "Derivative", 2: "Compound"}
 dirname = "e13-arc=FINAL5-clu=True-bat=64-epo=1000-uni=2048-att=512-cha=64-tes=0-tra=1-len=0.0-fra=1-lr=0.0001-opt=Adam-dro=0.2-rec=0.5-l=l1-use=1-neu=0-neu=0-sem=0/"
 
 if args.i is True:
-    args.batch_size == 1
+    args.batch_size = 1
 
 
 try:
@@ -142,6 +142,7 @@ def show_logo(logo, delay_time):
     columns = shutil.get_terminal_size().columns
     for line in logo.split("\n"):
         slow_print(" "*(columns//6) + line +"\n", delay_time=delay_time)
+
 def intro():
     show_logo(logo, delay_time=0.015)
     #sys.stdout.flush()
@@ -233,9 +234,10 @@ if args.i:
 else:
     list_of_lexemes = [*zip(language,lemmas)]
     output = model.retrieve_and_classify(list_of_lexemes,
-                                threshold=args.batch_size,
+                                threshold=batch_size,
                                 return_probs=True,
-                                try_candidates=True)
+                                try_candidates=True,
+                                candidates=6)
 
     retrieved_parents, classification, retrieval_probabilities, classification_probabilities, candidates = output
     classification_probabilities_array = np.array(classification_probabilities)

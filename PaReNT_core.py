@@ -967,6 +967,7 @@ class PaReNT(tf.keras.Model):
                               return_probs=False,
                               try_candidates=False,
                               candidates=6):
+
         retrieved_lst = []
         retrieve_probs_lst = []
 
