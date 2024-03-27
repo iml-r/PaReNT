@@ -8,8 +8,8 @@ import pandas as pd
 import numpy as np
 
 try:
-    from transcription.latin_to_cyril import latin_to_cyril
-    from transcription.cyril_to_latin import cyril_to_latin
+    from .transcription.latin_to_cyril import latin_to_cyril
+    from .transcription.cyril_to_latin import cyril_to_latin
 except:
     from latin_to_cyril import latin_to_cyril
     from cyril_to_latin import cyril_to_latin
