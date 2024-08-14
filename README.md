@@ -83,7 +83,7 @@ Installation consists of downloading the source files and installing the require
 ```bash
 git clone https://github.com/iml-r/PaReNT/
 cd PaReNT
-python3 -m venv venv
+python3.9 -m venv venv
 source venv/bin/activate
 pip3 install -r requirements.txt
 ```
