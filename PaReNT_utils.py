@@ -11,8 +11,12 @@ try:
     from .transcription.latin_to_cyril import latin_to_cyril
     from .transcription.cyril_to_latin import cyril_to_latin
 except:
-    from latin_to_cyril import latin_to_cyril
-    from cyril_to_latin import cyril_to_latin
+    try:
+        from latin_to_cyril import latin_to_cyril
+        from cyril_to_latin import cyril_to_latin
+    except:
+        from transcription.latin_to_cyril import latin_to_cyril
+        from transcription.cyril_to_latin import cyril_to_latin
 
 from typing import List, Dict, Tuple, Any, Literal
 
