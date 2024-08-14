@@ -78,7 +78,7 @@ There are three ways to use PaReNT:
 We will go through their usage one by one, but first, the tool has to be installed.
 
 ### Installation
-Installation consists of downloading the source files and installing the required Python packages.
+Installation consists of downloading the source files and installing the required Python packages. Python 3.9.x is required.
 
 ```bash
 git clone https://github.com/iml-r/PaReNT/
