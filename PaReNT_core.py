@@ -11,7 +11,10 @@ try:
     from scripts.PaReNT_utils import grapheme_encode, cyril_to_latin, latin_to_cyril, decide_word_origin, retrieval_accuracy, contains_empty_lst, parse_out_important
     #import scripts.derinet
 except:
-    from .PaReNT_utils import grapheme_encode, cyril_to_latin, latin_to_cyril, decide_word_origin, retrieval_accuracy, contains_empty_lst, parse_out_important
+    try:
+        from .PaReNT_utils import grapheme_encode, cyril_to_latin, latin_to_cyril, decide_word_origin, retrieval_accuracy, contains_empty_lst, parse_out_important
+    except:
+        from PaReNT_utils import grapheme_encode, cyril_to_latin, latin_to_cyril, decide_word_origin, retrieval_accuracy, contains_empty_lst, parse_out_important
     #import derinet
 
 from tqdm import tqdm
