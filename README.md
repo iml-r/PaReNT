@@ -64,9 +64,12 @@ It may differ from the performance of the model described in the associated LREC
 |  Total   |        0.67        | 0.94                    |               0.74               |
 
 ## Application
-As far as we know, the tool has been used in the following papers:
+As far as we know, the tool has been used in the following works:
 
 - [Identification and analysis of Czech equivalents of German compounds](https://dspace.cuni.cz/bitstream/handle/20.500.11956/127960/130309002.pdf?sequence=1&isAllowed=y)
+- [Compounds in Universal Dependencies: A Survey in Five European Languages](https://aclanthology.org/2024.sigtyp-1.12.pdf)
+- [Syntactic behavior of Czech compounds](https://ufal.mff.cuni.cz/~sevcikova/2024/docs/BCL2024_Kolarova.pdf)
+- [Modelování kompozit pro vícejazyčné zdroje jazykových dat](https://ufal.mff.cuni.cz/~sevcikova/2024/docs/BCL2024_Kolarova.pdf)
 
 ## Usage
 There are three ways to use PaReNT:
