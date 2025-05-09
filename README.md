@@ -146,3 +146,13 @@ classification = model.classify(lexemes)
 #and threshold tells it how many.  
 retrieval_and_classification = model.retrieve_and_classify(lexemes, try_candidates=True, threshold=10)
 ```
+
+## 📚 Cite Us
+
+If you use PaReNT in your work, please cite:
+
+@inproceedings{svoboda2024parent,
+  title={PaReNT (Parent Retrieval Neural Tool): A Deep Dive into Word Formation Across Languages},
+  author={Svoboda, E. and {\v{S}}ev{\v{c}}{\'\i}kov{\'a}, M.},
+  booktitle={Proceedings of the 2024 Joint International Conference on Computational Linguistics},
+  year={2024}
