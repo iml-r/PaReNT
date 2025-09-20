@@ -70,6 +70,7 @@ As far as we know, the tool has been used in the following works:
 - [Compounds in Universal Dependencies: A Survey in Five European Languages](https://aclanthology.org/2024.sigtyp-1.12.pdf)
 - [Syntactic behavior of Czech compounds](https://ufal.mff.cuni.cz/~sevcikova/2024/docs/BCL2024_Kolarova.pdf)
 - [Modelování kompozit pro vícejazyčné zdroje jazykových dat](https://ufal.mff.cuni.cz/~sevcikova/2024/docs/BCL2024_Kolarova.pdf)
+- [Multilingual base word recognition in derivation](https://events.unifr.ch/derimo2025/en/assets/public/files/derimo_proceedings_2025.pdf)
 
 ## Usage
 There are three ways to use PaReNT:
